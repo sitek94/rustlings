@@ -6,4 +6,6 @@ compiler. In this section, we'll go through the most important ones.
 ## Further information
 
 - [Data Types](https://doc.rust-lang.org/stable/book/ch03-02-data-types.html)
+  - Finished reading at
+    https://doc.rust-lang.org/stable/book/ch03-02-data-types.html#integer-types
 - [The Slice Type](https://doc.rust-lang.org/stable/book/ch04-03-slices.html)
