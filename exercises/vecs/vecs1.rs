@@ -16,6 +16,7 @@ fn array_and_vec() -> ([i32; 4], Vec<i32>) {
     // v.push(30);
     // v.push(40);
 
+    // Second solution
     let v = vec![10, 20, 30, 40];
 
     (a, v)
