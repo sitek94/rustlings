@@ -6,7 +6,9 @@
 // Try adding a new `println!` and check the updated output in the terminal.
 
 fn main() {
-    println!(r#"       Welcome to...                      "#);
+    let name = "Rustlings";
+
+    println!(r#"       Welcome to... {}                      "#, name);
     println!(r#"                 _   _ _                  "#);
     println!(r#"  _ __ _   _ ___| |_| (_)_ __   __ _ ___  "#);
     println!(r#" | '__| | | / __| __| | | '_ \ / _` / __| "#);
