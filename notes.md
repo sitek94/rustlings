@@ -22,3 +22,8 @@
   - Can be used for emojis as well, however, they must be a single Unicode scalar value, e.g.
     - `'😀'` is valid as it is a single Unicode scalar value
     - `'👍🏼'` is invalid as it is a compound Unicode scalar value (thumbs up + skin tone modifier)
+
+## Vectors
+
+- Stored on the heap and can grow or shrink at runtime (as opposed to arrays which are stored on the stack and must have
+  a fixed size)
