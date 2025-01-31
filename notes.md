@@ -27,3 +27,32 @@
 
 - Stored on the heap and can grow or shrink at runtime (as opposed to arrays which are stored on the stack and must have
   a fixed size)
+
+## Ownership
+
+- All programs must manage their memory one way or another
+  - Garbage collection regularly looks for no-longer-used memory as the program runs (e.g. JavaScript)
+  - in other languages, the programmer must explicitly allocate and free the memory (e.g. C's famous `malloc`)
+- **Rust** uses different approach called Ownership
+  - memory is managed through a system of ownership with a set of rules that the compiler checks
+- Ownership rules
+  - Each value in Rust has an owner.
+  - There can only be one owner at a time.
+  - When the owner goes out of scope, the value will be dropped.
+  - https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#stack-only-data-copy
+
+### The Stack and the Heap
+
+- The stack
+  - stores values in the order it gets them and removes the values in the opposite order (last in, first out)
+  - Adding data is called pushing onto the stack, and removing data is called popping off the stack.
+  - All data stored on the stack must have a known, fixed size.
+- The heap
+  - less organized
+  - when you put data on the heap, you request a certain amount of space. The memory allocator finds an empty spot in
+    the heap that is big enough, marks it as being in use, and returns a pointer, which is the address of that location.
+    This process is called allocating on the heap and is sometimes abbreviated as just allocating
+  - Because the pointer to the heap is a known, fixed size, you can store the pointer on the stack, but when you want
+    the actual data, you must follow the pointer.
+  - Accessing data in the heap is slower than accessing data on the stack because you have to follow a pointer to get
+    there.
