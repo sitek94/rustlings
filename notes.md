@@ -74,3 +74,7 @@ Some of the types that implement Copy:
 - The character type, `char`.
 - Tuples, if they only contain types that also implement `Copy`. For example, (`i32`, `i32`)
   implements `Copy`, but (`i32`, `String`) does not.
+
+## References
+
+- https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#dangling-references
