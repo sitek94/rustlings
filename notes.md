@@ -75,6 +75,11 @@ Some of the types that implement Copy:
 - Tuples, if they only contain types that also implement `Copy`. For example, (`i32`, `i32`)
   implements `Copy`, but (`i32`, `String`) does not.
 
+## Structs
+
+- [ ] [Unit-Like Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#unit-like-structs-without-any-fields) -
+      I'm not sure in what situations these would be useful, let's revisit it after some time
+
 ## References
 
 - https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#dangling-references
