@@ -79,6 +79,14 @@ Some of the types that implement Copy:
 
 - [ ] [Unit-Like Structs](https://doc.rust-lang.org/book/ch05-01-defining-structs.html#unit-like-structs-without-any-fields) -
       I'm not sure in what situations these would be useful, let's revisit it after some time
+- Methods
+  - I was wondering why methods are not defined in the struct definition, but rather in a separate
+    impl (implementation) block and apparently, there are many reasons for this, some of them are:
+    - separation of concerns - struct defines the data, impl block defines the behavior
+    - flexibility and organization - you can have multiple impl blocks for the same type, each
+      grouping some behaviors, and they can be live in separate modules or files
+    - [ ] consistency - the same syntax is used for Traits, I haven't read about Traits, so I'll
+          revisit it later
 
 ## References
 

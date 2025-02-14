@@ -22,7 +22,40 @@ fn create_order_template() -> Order {
 }
 
 fn main() {
-    // You can optionally experiment here.
+    // Methods experiments
+
+    struct Rectangle {
+        width: u32,
+        height: u32,
+    }
+
+    // You can have multiple `impl` blocks
+
+    // Area and similar methods
+    impl Rectangle {
+        fn area(&self) -> u32 {
+            self.width * self.height
+        }
+    }
+
+    // Logging methods
+    impl Rectangle {
+        fn log_state(&self) {
+            println!(
+                "Rectangle: {}x{}, Area: {}",
+                self.width,
+                self.height,
+                self.area()
+            );
+        }
+    }
+
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    rect1.log_state();
 }
 
 #[cfg(test)]
@@ -34,7 +67,11 @@ mod tests {
         let order_template = create_order_template();
 
         // TODO: Create your own order using the update syntax and template above!
-        // let your_order =
+        let your_order = Order {
+            name: String::from("Hacker in Rust"),
+            count: 1,
+            ..order_template
+        };
 
         assert_eq!(your_order.name, "Hacker in Rust");
         assert_eq!(your_order.year, order_template.year);
