@@ -20,12 +20,18 @@ enum IpAddress {
     V6(String),
 }
 
+impl IpAddress {
+    fn print_me(&self) {
+        println!("[print_me]: {:?}", self);
+    }
+}
+
 fn main() {
     // experiments
     let four = IpAddressKind::V4;
 
     fn route(ip: IpAddressKind) {
-        println!("{:?}", ip);
+        println!("[route]: {:?}", ip);
     }
 
     route(IpAddressKind::V4);
@@ -39,6 +45,9 @@ fn main() {
 
     println!("{:?}", home);
     println!("{:?}", loopback);
+
+    // Methods
+    loopback.print_me();
 
     // TODO: FInish reading about enum methods
 
