@@ -88,6 +88,20 @@ Some of the types that implement Copy:
     - [ ] consistency - the same syntax is used for Traits, I haven't read about Traits, so I'll
           revisit it later
 
+## Printing
+
+- Two main ways to print values:
+  - `Display` formatting with `{}` - for user-friendly output
+  - `Debug` formatting with `{:?}` or pretty-printed with `{:#?}` - for debugging
+- Types that implement `Display` by default:
+  - All primitive types (`i32`, `f64`, `bool`, `char`, etc.)
+  - `&str` and `String`
+  - References to types that implement `Display`
+- Many types don't implement `Display` by default (like structs, enums)
+- For custom types, you need to:
+  - Add `#[derive(Debug)]` to enable debug printing
+  - Implement `Display` trait manually for custom display formatting
+
 ## References
 
 - https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#dangling-references

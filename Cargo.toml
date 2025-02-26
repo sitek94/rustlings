@@ -187,6 +187,13 @@ bin = [
   { name = "try_from_into_sol", path = "solutions/23_conversions/try_from_into.rs" },
   { name = "as_ref_mut", path = "exercises/23_conversions/as_ref_mut.rs" },
   { name = "as_ref_mut_sol", path = "solutions/23_conversions/as_ref_mut.rs" },
+  { name = "exp1", path = "experiments/exp1.rs" },
+  { name = "exp2", path = "experiments/exp2.rs" },
+  { name = "exp3", path = "experiments/exp3.rs" },
+  { name = "exp4", path = "experiments/exp4.rs" },
+  { name = "exp5", path = "experiments/exp5.rs" },
+  { name = "exp6", path = "experiments/exp6.rs" },
+  { name = "exp7", path = "experiments/exp7.rs" },
 ]
 
 [package]
