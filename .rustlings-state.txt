@@ -1,6 +1,6 @@
 DON'T EDIT THIS FILE!
 
-as_ref_mut
+enums2
 
 intro1
 intro2
@@ -36,4 +36,3 @@ structs1
 structs2
 structs3
 enums1
-enums2

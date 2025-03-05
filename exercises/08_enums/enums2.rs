@@ -21,6 +21,23 @@ impl Message {
 }
 
 fn main() {
+    let some_number = Some(5);
+    let some_char = Some('e');
+    let absent_number: Option<i32> = None;
+
+    println!("some_number: {some_number:?}");
+    println!("some_char: {some_char:?}");
+    println!("absent_number: {absent_number:?}");
+
+    let x: i8 = 5;
+    let y: Option<i8> = Some(5);
+
+    // TODO: Continue from here
+    // https://doc.rust-lang.org/book/ch06-02-match.html
+    if y.is_some() {
+        let sum = x + y;
+    }
+
     let messages = [
         Message::Resize {
             width: 10,
