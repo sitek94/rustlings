@@ -48,3 +48,34 @@ fn value_in_cents(coin: Coin) -> u8 {
 ```
 
 So basically, Rust's pattern matching is like JS switch on steroids.
+
+## Day 20
+
+- Matching with Option enum
+- Matches are exhaustive
+- Catch all
+
+  ```rust
+  let dice_roll = 9;
+  match dice_roll {
+      3 => add_fancy_hat(),
+      7 => remove_fancy_hat(),
+
+      // 1. When you want to do something with the value
+      other => move_player(other),
+
+      // 2. Alternatively use `_` as placeholder when you aren't going to use
+      // the bound value
+      _ => reroll(),
+
+      // 3. Lastly, you can just do nothing using the unit value `()`
+      _ => (),
+  }
+
+  fn add_fancy_hat() {}
+  fn remove_fancy_hat() {}
+  fn move_player(num_spaces: u8) {}
+  fn reroll() {}
+  ```
+
+Next: https://doc.rust-lang.org/book/ch06-03-if-let.html

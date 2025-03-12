@@ -28,16 +28,11 @@ fn main() {
     println!("some_number: {some_number:?}");
     println!("some_char: {some_char:?}");
     println!("absent_number: {absent_number:?}");
+    ///////////
 
-    let x: i8 = 5;
-    let y: Option<i8> = Some(5);
+    println!("Match Option enum: {:?}", match_option_enum());
 
-    // TODO: Continue from here
-    // https://doc.rust-lang.org/book/ch06-02-match.html
-    if y.is_some() {
-        let sum = x + y;
-    }
-
+    ///////////
     let messages = [
         Message::Resize {
             width: 10,
@@ -51,5 +46,23 @@ fn main() {
 
     for message in &messages {
         message.call();
+    }
+}
+
+// Matching with Option enum
+fn match_option_enum() -> Option<i8> {
+    let x: i8 = 5;
+    let y = Some(5);
+
+    match y {
+        // Matches are exhaustive
+        None => None,
+
+        // Binding value
+        Some(sth) => {
+            let sum = sth + x;
+            println!("{}", sum);
+            Some(sum)
+        }
     }
 }
