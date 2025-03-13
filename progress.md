@@ -58,18 +58,18 @@ So basically, Rust's pattern matching is like JS switch on steroids.
   ```rust
   let dice_roll = 9;
   match dice_roll {
-      3 => add_fancy_hat(),
-      7 => remove_fancy_hat(),
+    3 => add_fancy_hat(),
+    7 => remove_fancy_hat(),
 
-      // 1. When you want to do something with the value
-      other => move_player(other),
+    // 1. When you want to do something with the value
+    other => move_player(other),
 
-      // 2. Alternatively use `_` as placeholder when you aren't going to use
-      // the bound value
-      _ => reroll(),
+    // 2. Alternatively use `_` as placeholder when you aren't going to use
+    // the bound value
+    _ => reroll(),
 
-      // 3. Lastly, you can just do nothing using the unit value `()`
-      _ => (),
+    // 3. Lastly, you can just do nothing using the unit value `()`
+    _ => (),
   }
 
   fn add_fancy_hat() {}
@@ -79,3 +79,59 @@ So basically, Rust's pattern matching is like JS switch on steroids.
   ```
 
 Next: https://doc.rust-lang.org/book/ch06-03-if-let.html
+
+## Day 21
+
+- `if let`
+
+  ```rust
+  // Using `match` expression:
+  let mut count = 0;
+  match coin {
+    Coin::Quarter(state) => println!("State quarter from {state:?}!"),
+    _ => count += 1,
+  }
+
+  // Or `if let` and `else` expression:
+  let mut count = 0;
+  if let Coin::Quarter(state) = coin {
+    println!("State quarter from {state:?}!");
+  } else {
+    count += 1;
+  }
+  ```
+
+- `let`-`else` example:
+
+  ```rust
+  fn describe_state_quarter(coin: Coin) -> Option<String> {
+    let Coin::Quarter(state) = coin else {
+        return None;
+    };
+
+    if state.existed_in(1900) {
+        Some(format!("{state:?} is pretty old, for America!"))
+    } else {
+        Some(format!("{state:?} is relatively new."))
+    }
+  }
+  ```
+
+  The usefulness of it is especially visible when trying to do something similar in JS:
+
+  ```js
+  function describe_state_quarter(coin: Coin) {
+    // In Rust all of this happens in one step: matching + extraction + early
+    // return. No need for extra type guard helper.
+    if (!is_quarter(coin)) {
+      // In Rust compiler enforces that the else branch must exit the current
+      // scope (return, break, etc.)
+      return null
+    }
+    const state = coin.state
+
+    // ...
+  }
+  ```
+
+Next: start `09_strings`
