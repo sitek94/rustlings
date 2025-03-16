@@ -49,7 +49,7 @@ fn value_in_cents(coin: Coin) -> u8 {
 
 So basically, Rust's pattern matching is like JS switch on steroids.
 
-## Day 20
+## Day 20 - `match`
 
 - Matching with Option enum
 - Matches are exhaustive
@@ -80,7 +80,7 @@ So basically, Rust's pattern matching is like JS switch on steroids.
 
 Next: https://doc.rust-lang.org/book/ch06-03-if-let.html
 
-## Day 21
+## Day 21 - `if let`
 
 - `if let`
 
@@ -135,3 +135,8 @@ Next: https://doc.rust-lang.org/book/ch06-03-if-let.html
   ```
 
 Next: start `09_strings`
+
+## Day 22 - Strings
+
+Next:
+https://doc.rust-lang.org/book/ch08-02-strings.html#concatenation-with-the--operator-or-the-format-macro
