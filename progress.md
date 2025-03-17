@@ -140,3 +140,45 @@ Next: start `09_strings`
 
 Next:
 https://doc.rust-lang.org/book/ch08-02-strings.html#concatenation-with-the--operator-or-the-format-macro
+
+## Day 23
+
+### Concatenation with the + Operator
+
+```rust
+let s1 = String::from("Hello, ");
+let s2 = String::from("world!");
+// When we call the add method, Rust uses a deref coercion, which here turns &s2 into &s2[..]
+// `add` does not take ownership of `s2`
+// However, it takes ownership of `s1`
+let s3 = s1 + &s2;
+```
+
+Concatenating multiple strings:
+
+```rust
+let s1 = String::from("tic");
+let s2 = String::from("tac");
+let s3 = String::from("toe");
+
+// We can do it like this but it's a bit verbose:
+let s = s1 + "-" + &s2 + "-" + &s3;
+
+// Instead, we can use `format!` macro:
+let s = format!("{s1}-{s2}-{s3}");
+// format! macro uses references so that this call doesn’t take ownership of
+// any of its parameters
+```
+
+### Indexing into Strings
+
+https://doc.rust-lang.org/book/ch08-02-strings.html#indexing-into-strings
+
+```rust
+let s1 = String::from("hello");
+let h = s1[0]; // ❌ This will not compile
+```
+
+TLDR; Rust strings don’t support indexing.
+
+Next, find out why: https://doc.rust-lang.org/book/ch08-02-strings.html#internal-representation
