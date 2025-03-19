@@ -26,4 +26,17 @@ fn main() {
     let s2 = String::from("world!");
     let s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
     println!("s3: {s3}");
+
+    // Strings and UTF-8
+    let ze = 'З';
+    println!("\n\nCyrillic letter Ze");
+    println!("As bytes: ");
+    for byte in ze.to_string().as_bytes() {
+        print!("{} ", byte); // Will print 208 151
+    }
+
+    println!("\nAs hex: ");
+    for byte in ze.to_string().as_bytes() {
+        print!("{:02X} ", byte); // Will print D0 97
+    }
 }

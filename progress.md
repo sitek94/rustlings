@@ -126,9 +126,9 @@ Next: https://doc.rust-lang.org/book/ch06-03-if-let.html
     if (!is_quarter(coin)) {
       // In Rust compiler enforces that the else branch must exit the current
       // scope (return, break, etc.)
-      return null
+      return null;
     }
-    const state = coin.state
+    const state = coin.state;
 
     // ...
   }
@@ -179,6 +179,19 @@ let s1 = String::from("hello");
 let h = s1[0]; // ❌ This will not compile
 ```
 
-TLDR; Rust strings don’t support indexing.
+TLDR; Rust strings don't support indexing.
 
 Next, find out why: https://doc.rust-lang.org/book/ch08-02-strings.html#internal-representation
+
+## Day 24 - Strings and UTF-8
+
+```rust
+let hello = "Здравствуйте";
+let answer = &hello[0];
+```
+
+Rust won't compile this because the first Cyrillic letter `З` takes up 2 bytes (208 151 in UTF-8). If Rust let us grab index 0, we'd get just 208, which is only half the character - that's pretty useless and could cause bugs.
+
+This is also why the string length is 24 bytes even though it's only 12 characters - each Cyrillic letter needs 2 bytes.
+
+Next: https://doc.rust-lang.org/book/ch08-02-strings.html#bytes-and-scalar-values-and-grapheme-clusters-oh-my
