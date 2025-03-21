@@ -195,3 +195,55 @@ Rust won't compile this because the first Cyrillic letter `З` takes up 2 bytes 
 This is also why the string length is 24 bytes even though it's only 12 characters - each Cyrillic letter needs 2 bytes.
 
 Next: https://doc.rust-lang.org/book/ch08-02-strings.html#bytes-and-scalar-values-and-grapheme-clusters-oh-my
+
+## Day 25 - More about Strings
+
+### Rust has 3 ways of representing strings:
+
+Vector of u8 values (these bytes is how computers ultimately store this data)
+
+```
+[224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164, 224, 165, 135]
+```
+
+Unicode scalar values, which are what Rust's char type:
+
+```
+['न', 'म', 'स', '्', 'त', 'े']
+```
+
+Grapheme clusters (the closest thing to what we'd call the letters representation):
+
+```
+["न", "म", "स्", "ते"]
+```
+
+### Best way to operate on pieces of strings
+
+Bytes:
+
+```rust
+for b in "Зд".bytes() {
+    println!("{b}");
+}
+```
+
+Chars:
+
+```rust
+for c in "Зд".chars() {
+    println!("{c}");
+}
+```
+
+Grapheme clusters is more complex so standard library doesn't provide it. We need to use some additional crate (package in Rust world)
+
+For example: [unicode-segmentation](https://crates.io/crates/unicode-segmentation)
+
+```rust
+use unicode_segmentation::UnicodeSegmentation;
+
+for g in "नमस्ते".graphemes(true) {
+    println!("{g}");
+}
+```
