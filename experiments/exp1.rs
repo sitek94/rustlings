@@ -39,6 +39,11 @@ fn main() {
 
     println!("{:?}", Point(1, 2)); // Debug: Point(1, 2)
 
+    let point = Point(1, 2);
+
+    println!("Point.0: {}", point.0);
+    println!("Point.1: {}", point.1);
+
     // Pretty printing makes a difference for complex structures:
     let complex = vec![Point(1, 2), Point(3, 4)];
     println!("{:#?}", complex); // Prints with nice indentation

@@ -105,3 +105,4 @@ Some of the types that implement Copy:
 ## References
 
 - https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#dangling-references
+- [ ] [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/)
