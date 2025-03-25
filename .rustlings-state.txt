@@ -45,3 +45,4 @@ strings4
 modules1
 modules2
 modules3
+hashmaps1
