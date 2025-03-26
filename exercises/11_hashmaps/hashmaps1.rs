@@ -50,6 +50,19 @@ fn main() {
     println!("[scores2] Adding if not present: {scores2:?}");
 
     // ## Updating a Value Based on the Old Value
+    let text = "hello world wonderful world";
+    let mut counts = HashMap::new();
+    for word in text.split_whitespace() {
+        println!("{}", word);
+        let count = counts
+            .entry(word)
+            // `or_insert` returns a mutable reference to the value in the entry
+            .or_insert(0);
+        // because `count` is mutable reference, to assign to this value we must first
+        // dereference it using the asterisk `*`
+        *count += 1;
+    }
+    println!("[counts] Updating based on value: {counts:?}");
 }
 
 #[cfg(test)]

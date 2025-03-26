@@ -32,6 +32,14 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
         // TODO: Insert new fruits if they are not already present in the
         // basket. Note that you are not allowed to put any type of fruit that's
         // already present!
+
+        // I first did it like this
+        // if !basket.contains_key(&fruit) {
+        //     basket.insert(fruit, 4);
+        // }
+
+        // But it'd be more idiomatic to do it this way:
+        basket.entry(fruit).or_insert(4);
     }
 }
 

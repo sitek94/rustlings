@@ -31,6 +31,39 @@ fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
         // Keep in mind that goals scored by team 1 will be the number of goals
         // conceded by team 2. Similarly, goals scored by team 2 will be the
         // number of goals conceded by team 1.
+
+        // 1️⃣ First take
+        // let team_1_scores = scores.entry(team_1_name).or_insert({
+        //     TeamScores {
+        //         goals_scored: 0,
+        //         goals_conceded: 0,
+        //     }
+        // });
+        // team_1_scores.goals_scored += team_1_score;
+        // team_1_scores.goals_conceded += team_2_score;
+
+        // let team_2_scores = scores.entry(team_2_name).or_insert({
+        //     TeamScores {
+        //         goals_scored: 0,
+        //         goals_conceded: 0,
+        //     }
+        // });
+        // team_2_scores.goals_scored += team_2_score;
+        // team_2_scores.goals_conceded += team_1_score;
+
+        // 2️⃣ After comparing with solution I learned that I can use `or_default()`
+        // I was wondering how does Rust now that for `TeamScores` both values by
+        // default should be zero. It's because TeamScores has the #[derive(Default)]
+        // attribute. This automatically implements the Default trait for TeamScores,
+        // which creates a new instance with all fields set to their default values.
+        // And for numeric types like `u8` the default value is `0`
+        let team_1_scores = scores.entry(team_1_name).or_default();
+        team_1_scores.goals_scored += team_1_score;
+        team_1_scores.goals_conceded += team_2_score;
+
+        let team_2_scores = scores.entry(team_2_name).or_default();
+        team_2_scores.goals_scored += team_2_score;
+        team_2_scores.goals_conceded += team_1_score;
     }
 
     scores
