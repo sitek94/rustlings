@@ -29,7 +29,29 @@ mod tests {
         // TODO: Make this a while-let statement. Remember that `Vec::pop()`
         // adds another layer of `Option`. You can do nested pattern matching
         // in if-let and while-let statements.
-        integer = optional_integers.pop() {
+        while let Some(Some(integer)) = optional_integers.pop() {
+            assert_eq!(integer, cursor);
+            cursor -= 1;
+        }
+
+        assert_eq!(cursor, 0);
+    }
+
+    #[test]
+    fn layered_option_non_optional_integers() {
+        let range = 10;
+        let mut integers: Vec<i8> = vec![];
+
+        for i in 1..=range {
+            integers.push(i);
+        }
+
+        let mut cursor = range;
+
+        // TODO: Make this a while-let statement. Remember that `Vec::pop()`
+        // adds another layer of `Option`. You can do nested pattern matching
+        // in if-let and while-let statements.
+        while let Some(integer) = integers.pop() {
             assert_eq!(integer, cursor);
             cursor -= 1;
         }
