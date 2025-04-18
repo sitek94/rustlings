@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "Rustlings",
+      "path": "."
+    },
+    {
+      "name": "CLI",
+      "path": "my-cli"
+    },
+    {
+      "name": "Experiments",
+      "path": "my-project"
+    }
+  ],
+  "settings": {}
+}
